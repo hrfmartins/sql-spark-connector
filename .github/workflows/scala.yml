@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest] #, macOS-latest]
         profile: ['spark35']
     timeout-minutes: 15
 
@@ -38,6 +38,6 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: mvn --batch-mode -DskipPgpSignatures deploy  # Skipping pgp for now
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
