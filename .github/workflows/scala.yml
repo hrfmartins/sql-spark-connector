@@ -25,9 +25,18 @@ jobs:
     - name: Build and run tests
       run: mvn clean package -P ${{ matrix.profile }}
 
-    - name: Upload JAR Artifact
-      uses: actions/upload-artifact@v4
-      if: github.ref == 'refs/heads/master'
-      with:
-        name: sql-spark-connector-jar
-        path: target/*.jar
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
