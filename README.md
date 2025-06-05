@@ -3,7 +3,7 @@
 </p>
 
 # Important Notice (Feb 2025)
-This project is no longer maintained. For any interested parties, please feel free to fork and maintain it on GitHub.
+This project is a fork of the original project that is no longer maintained to bump the dependency of Spark to 3.5. For any interested parties, please feel free to fork and maintain it on GitHub.
 
 # Apache Spark Connector for SQL Server and Azure SQL
 Born out of Microsoft’s SQL Server Big Data Clusters investments, the Apache Spark Connector for SQL Server and Azure SQL is a high-performance connector that enables you to use transactional data in big data analytics and persists results for ad-hoc queries or reporting. The connector allows you to use any SQL database, on-premises or in the cloud, as an input data source or output data sink for Spark jobs.
